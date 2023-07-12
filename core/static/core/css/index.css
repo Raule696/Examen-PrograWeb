@@ -1,0 +1,16 @@
+.producto-md {
+  width:  165px;
+  height: 139px;
+}
+
+.descripcion {
+  width: 200px; /* Ancho fijo para el contenedor */
+  white-space: nowrap; /* Evita que el texto se desborde */
+  overflow: hidden; /* Oculta el texto que se desborda */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos (...) */
+}
+
+.custom-card-footer {
+  background-color: transparent;
+  border-top: none;
+}

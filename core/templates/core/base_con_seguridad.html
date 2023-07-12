@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block title %}
+        <title>Tienda</title>
+    {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    {% block stylesheet %}
+    {% endblock stylesheet %}
+
+</head>
+<body>
+    {% block navbar %}
+        <nav id="navbar">
+            <div id="nav">
+                <ul class="list-inline">
+                    <li id="inicio">
+                        <a href="{% url 'index' %}"> Inicio </a>
+                    </li>    
+                    <li id="admsis">
+                        Administrar sistema
+                    </li>
+                    {% endif %}
+                
+                    {% if user.is_authenticated and user.is_staff %}
+                        <li id="manpro">Mantener productos</li>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                        <li id="solser">Mis solicitudes</li>
+                    {% endif %}
+                    
+                    {% if not user.is_authenticated %}
+                        <li id="regist">Registrarme</li>
+                        <li id="inises">Iniciar sesión</li>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                        <li id="chpass">Cambiar contraseña</li>
+                        <li id="cerses">Cerrar sesión</li>
+                        <li id="perfil">{{ user.get_full_name }}</li>
+                    {% endif %}
+                    
+                </ul>
+            </div>                                 
+        </nav>
+        <hr>
+    {% endblock %}
+
+    <div class="content container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <br>
+    <hr>
+    <footer>
+        
+        <div class="text-left" style="font-family: 'Courier New', Courier, monospace; font-weight: bold;">
+            <span style="color: blue; font-style: bolder;"> USUARIOS: </span> <br>
+            Superusuario &nbsp;: admin <br>
+            Administrador : emusk <br>
+            Cliente &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : atorres, jperez, mayala, jsoto, pmora <br>
+            Técnico &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : jgatica, mvera, pdiazduoc <br>
+            Bodeguero &nbsp;&nbsp;&nbsp; : creyes <br>
+            Vendedor &nbsp;&nbsp;&nbsp;&nbsp; : bgates
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            
+            set_nav_li("#inicio", "{% url 'index' %}", "{% static 'core/img/casco_cerrado.png' %}");
+            set_nav_li("#tienda", "{% url 'tienda' %}", "{% static 'core/img/bolsa.png' %}");
+            set_nav_li("#admsis", "{% url 'admin:index' %}", "{% static 'core/img/cohete.png' %}");
+            set_nav_li("#manpro", "{% url 'administrar_productos' 'ins' '-1' %}", "{% static 'core/img/starkind.png' %}");
+            set_nav_li("#regist", "{% url 'registrar_usuario' %}", "{% static 'core/img/guante.png' %}");
+            set_nav_li("#solser", "{% url 'obtener_solicitudes_de_servicio' %}", "{% static 'core/img/guante.png' %}");
+            set_nav_li("#inises", "{% url 'iniciar_sesion' %}", "{% static 'core/img/casco_abierto.png' %}");
+            set_nav_li("#cerses", "{% url 'cerrar_sesion' %}", "{% static 'core/img/casco_abierto.png' %}");
+            set_nav_li("#perfil", "{% url 'perfil_usuario' %}", "{% static 'core/img/perfil2.png' %}");
+            set_nav_li("#chpass", "{% url 'cambiar_password' %}", "{% static 'core/img/password.png' %}");
+
+            function set_nav_li(id, url, img) {
+                $(id).addClass('nav-item list-inline-item align-center nav_item_text');
+                name = $(id).html();
+                $(id).html('');
+                if (id == "#perfil") {
+                    $(id).append(`<a href="${url}"><img class="img_menu" src="${img}" style="height: 25px !important">${name}</a>`)
+                } else {
+                    $(id).append(`<a href="${url}">${name}</a>`)
+                }
+            }
+
+            $('#id_username').focus();
+            
+        });
+    </script>
+</body>
+</html>

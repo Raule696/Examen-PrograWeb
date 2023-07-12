@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+    
+{% endblock stylesheet %}
+
+{% block content %}
+    
+<div style="text-align: center"> 
+    <h1>Administrador</h1>
+</div>
+
+<!-- botones de administrados -->
+
+<div>
+    <li>
+        <a href="mantenedorUsuarios.html">        
+            <button type="submit" class="btn btn-secondary">Mantenedor Usuarios
+            </button>
+        </a> 
+    </li>
+        &nbsp;
+    <li>
+        <a href="mantenedorProducto.html">
+            <button type="submit" class="btn btn-secondary">
+            Mantenedor de productos 
+            </button>
+        </a>    
+    </li>
+        &nbsp;
+    <li>
+        <a href="historialVentas.html">        
+            <button type="submit" class="btn btn-secondary">Historial de ventas
+            </button>
+        </a>
+    </li>
+        &nbsp;
+        <li>
+            <a href="mantenedorBodega.html">
+                <button type="submit" class="btn btn-secondary">Mantenedor de bodega
+                </button>  
+            </a>
+        </li>
+        &nbsp;   
+</div>   
+    
+{% endblock content %}

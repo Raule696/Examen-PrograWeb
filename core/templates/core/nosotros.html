@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block stylesheet %}
+    
+{% endblock stylesheet %}
+
+{% block content %}
+    
+<div class="container mt-3">
+        
+    <div id="content">
+        <!-- textos alusivos al la descripcion de la tienda-->
+        <h1>Acerca de Nosotros</h1>
+        <p></p>
+        <p>En nuestra tienda The Purrfect Place, nos especializamos en brindar a nuestros clientes los mejores productos y servicios para satisfacer
+            las necesidades de sus adorables mascotas. Con una experiencia de 30 años en el rubro, nuestros expertos en cuidado de mascotas 
+            están altamente capacitados para brindar asesoramiento personalizado y soluciones efectivas para cualquier situación. Desde alimentos
+            y juguetes de alta calidad hasta accesorios y medicamentos, ofrecemos una amplia gama de productos de marcas reconocidas para 
+            satisfacer las necesidades de cada mascota y dueño. Nuestro compromiso es garantizar la salud y felicidad de sus mascotas, 
+            brindando un servicio excepcional y una experiencia de compra inolvidable en cada visita. ¡Ven y descubre todo lo que tenemos 
+            para ofrecer en nuestra tienda de mascotas!
+        </p>
+    </div>
+</div>
+
+&nbsp;&nbsp;
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="container text-center">
+    <div class="card text-center mb-3">
+      <img src="{% static 'core/images/userPaty.png' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h4 class="card-title">Patricia Piñones</h4>
+        <p class="card-text">Gerente general</p>
+        <p class="card-text">pat.pinones@duocuc.cl</p>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center">
+    <div class="card text-center mb-3">
+      <img src="{% static 'core/images/userRaul.png' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h4 class="card-title">Raúl Bahamonde</h4>
+        <p class="card-text">Marketing</p>
+        <p class="card-text">ra.bhamonde@duocuc.cl</p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+{% endblock content %}

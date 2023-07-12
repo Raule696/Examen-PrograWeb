@@ -1,0 +1,99 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% block stylesheet %}
+
+    <link href="{% static 'core/css/style.css'%}" rel="stylesheet">
+
+{% endblock stylesheet %}
+
+{% block content %}
+
+    <main role="main">
+        <div class="container">
+            <h2 class="mb-4">Mis datos</h2>
+            <p></p>
+            <form action="" method="post" id="formulario-registro" name="formulario-registro">
+              <div class="container-fluid">
+              <div class="row">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" id="nombres" name="nombres">
+                </div>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Apellidos</label>
+                  <input type="text" class="form-control" id="apellidos" name="apellidos">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="correo" name="correo">
+                </div>
+                <div>
+                    <label for="rut" class="form-label">Rut</label>
+                    <input type="text" class="form-control" id="rut" name="rut">
+                </div>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Dirección</label>
+                  <textarea class="form-control" id="direccion" name="direccion" rows="3"></textarea>
+                </div>           
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="subscripcion" name="subscripcion" checked>
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Deseo subscribirme por $5.000 mensuales y recibir un 15% de descuento en mis compras
+                  </label>
+                </div>
+                &nbsp;&nbsp;
+                <br>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <div class="mb-3">
+                    <label for="confirm-password" class="form-label">Confirmar contraseña</label>
+                    <input type="password" class="form-control" id="password2" name="password2">
+                </div>
+                <div class="mb-3">
+                  &nbsp;&nbsp;
+                  <table>
+                    <tr>
+                      <td>
+                        <img src="img/user.png" alt="" class="user-image">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <input type="file" class="form-control">
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              </div>
+              
+              <div>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="reset" class="btn btn-primary">Limpiar</button>
+              </div>
+              <br>
+              <p></p>
+              <br>
+                <div>
+                  <li>
+                    <a href="misCompras.html">Ver mis compras</a></li>
+                  <li>
+                    <a href="boleta.html">Ver mi boleta</a></li>
+                </div>
+            </form>
+        </div>
+    
+    
+      </main>    
+    
+{% endblock content %}
+
+{% block script %}
+  <script src="{% static 'core/js/misDatos.js' %}"></script>
+{% endblock script %}

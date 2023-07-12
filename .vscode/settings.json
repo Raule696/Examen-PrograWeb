@@ -1,0 +1,8 @@
+{
+    "editor.minimap.enabled": false,
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "files.autoSave": "afterDelay",
+    "python.terminal.activateEnvironment": false,
+    "python.defaultInterpreterPath": "C:\\ProyectosDjango\\tienda_venv\\Scripts\\python.exe",
+    "editor.tabSize": 2
+}

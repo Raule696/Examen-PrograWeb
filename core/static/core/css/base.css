@@ -1,0 +1,18 @@
+h1 {
+    color: blue !important;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.logo2 {
+    height: 40px;
+}
+
+.error-message {
+    color: red !important;
+    font-weight: bold !important;
+}
+
+/* div {
+    border: 1px solid blue;
+} */

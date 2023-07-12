@@ -1,0 +1,169 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% block stylesheet %}
+
+    <link href="{% static 'core/css/style.css'%}" rel="stylesheet">
+
+{% endblock stylesheet %}
+
+{% block content %}
+    
+    <h1>Mantenedor de usuarios</h1>
+
+    <div style="text-align: center"> 
+        <h1>Mantenedor de usuarios</h1>
+    </div>
+    <p></p>
+    <form action="" method="post" id="formulario-mantenedorU" name="formulario-mantenedorU">{% csrf_token %}
+        <div class="container-fluid">
+            <!-- todos los datos del cliente -->
+            <div class="row">
+                <!-- datos del cliente -->
+                <div class="col" id="datos">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Id</label>
+                        <input type="number" class="form-control" id="id" name="id">
+                    </div>
+                    <p>Tipos de usuario</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                        <label class="form-check-label" for="flexRadioDefault1">Cliente</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">Administrador</label>
+                    </div>  
+                    <div> <br>
+                        <label for="rut">Rut</label>
+                        <input
+                        type="text"
+                        id="rut"
+                        name="rut"
+                        class="form-control"
+                        placeholder="Ej: 12345678-k"
+                        value=""
+                        />
+                    </div>
+                    <div class="mb-3">
+                    <label for="name" class="form-label">Nombres</label>
+                    <input type="text" class="form-control" id="nombres" name="nombres">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="apellidos" name="apellidos">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="correo" name="correo">
+                    </div>
+                    <div class="mb-3">
+                            <label for="name" class="form-label">Dirección</label>
+                            <textarea class="form-control" id="direccion" name="direccion" rows="3"></textarea>
+                    </div>                
+                    <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="subscripcion" name="subscripcion" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                            Deseo subscribirme por $3.000 mensuales y recibir un 5% de descuento en mis compras
+                            </label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contrpasswordaseña</label>
+                        <input type="password" class="form-control" id="password" name="password"> <br>
+                        <button class="btn btn-primary" onclick="generarContrasena()">Generar Contraseña</button>
+                    </div>                   
+                    
+                    <button type="submit" class="btn btn-primary">
+                        Guardar 
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Nuevo
+                    </button>
+                    <button type="reset" class="btn btn-primary">
+                        Eliminar
+                    </button>
+                    <p></p>
+                    <div class="mb-3">
+                        &nbsp;&nbsp;
+                        <table>
+                        <tr>
+                            <td>
+                            <img src="img/user.png" alt="" class="user-image">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <input type="file" class="form-control">
+                            </td>
+                        </tr>
+                        </table>
+                </div>
+            </div>
+        </div>  
+    
+    <p></p>
+                <div>
+                    <table class="table table-hover">
+                        <thead>
+                            <th scope="col"></th>
+                            <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">ID &nbsp;</th>
+                            <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Tipo usuario</th>
+                            <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Rut &nbsp;&nbsp;</th>
+                            <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Nombre &nbsp;</th>
+                            <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">apellido &nbsp;</th>
+                            <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">correo &nbsp;</th>
+                            <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">direccion &nbsp;</th>
+                            <th scope="col" class="text-end d-none d-lg-block d-lg-table-cell">con subcripcion &nbsp;</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell"></td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">34</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">cliente</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">9.586.165-1</td>                                      
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Juan</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Perez</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">jperez@gmail.com &nbsp;</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Paris 420</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">si</td>
+                            </tr>
+                            <tr>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell"></td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">35</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">cliente</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">13.586.165-1 </td>                                      
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Juana</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Lopez</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">jLopez@gmail.com &nbsp;</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Aconcagua 920</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">si</td>
+                            </tr>  
+                            <tr>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell"></td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">37</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">admin</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">18.586.165-1</td>                                      
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Felipe</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Paz</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">fpaz@gmail.com &nbsp;</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">Los Vilos 4320</td>
+                                <td scope="col" class="text-end d-none d-lg-block d-lg-table-cell">no</td>
+                            </tr>
+                                                       
+                        </tbody>
+                        <tfoot>
+                         
+    
+                        </tfoot>
+    
+                    </table>
+                </div>    
+
+{% endblock content %}
+
+{% block script %}
+    <script src="{% static 'core/js/mantenedorU.js' %}"></script>
+{% endblock script %}

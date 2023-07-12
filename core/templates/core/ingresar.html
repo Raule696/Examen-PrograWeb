@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+{% block stylesheet %}
+
+    <link href="{% static 'core/css/style.css'%}" rel="stylesheet">
+
+{% endblock stylesheet %}
+
+{% block content %}
+
+    <div class="container">
+        <h1 class="text-center">Iniciar Sesión</h1>
+        <form action="" method="post" id="formulario-ingresar" name="formulario-ingresar">
+          <div class="row justify-content-center">
+              <div class="form-group">
+                <label for="username">Nombre de usuario:</label>
+                <input type="text" class="form-control" id="username" name="username">
+              </div>
+      
+              <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" class="form-control" id="password" name="password" required> <br>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+              </div>
+          </div>
+          <br><br>
+          <div class="text-center">
+            <a href="registro.html">registrarme</a><br>
+            <a href="recuperar.html">Olvidé mi contraseña</a>
+          </div>
+          </form>  
+        </div>
+      <p></p>
+      
+      <div>
+        <li>
+          <a href="misDatos.html">Ingresar como cliente</a></li>
+        <li>
+          <a href="administrador.html">Ingresar como administrador</a></li>
+      </div>    
+    
+{% endblock content %}
+
+{% block script %}
+  <script src="{% static 'core/js/ingresar.js' %}"></script>
+{% endblock script %}

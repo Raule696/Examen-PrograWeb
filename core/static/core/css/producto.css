@@ -1,0 +1,20 @@
+th {
+  vertical-align: top;
+  background-color: lightgray !important;
+}
+
+.producto-sm {
+  width:  82px;
+  height: 70px;
+}
+
+#imagen-producto {
+  max-width: 350px;
+  max-height: 350px;
+  padding: 3px;
+  border: 2px solid gray;
+}
+
+.ancho-boton {
+  width: 150px;
+}

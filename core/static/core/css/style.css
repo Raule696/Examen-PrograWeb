@@ -1,0 +1,100 @@
+.logo{
+    width: 40px;
+    margin-right: 10px;
+}
+.sale-real-price {
+    text-decoration: line-through;
+    color: red;
+}
+.sale-offer-price {
+    color: darkgreen;
+}
+
+
+#navbarMenu {
+    background: transparent;
+}
+
+#nav {
+    background: lightseagreen;
+}
+
+
+#btnProductos {
+    color: whitesmoke;
+}
+
+#btnProductos:hover {
+    color: black;
+}
+
+#btnProductos:active {
+    color: black;
+}
+
+#btnPrincipal{
+    color: whitesmoke;
+}
+
+#btnPrincipal:hover {
+    color: black;
+}
+
+#btnServicios {
+    color: whitesmoke;
+}
+
+#btnServicios:hover{
+    color: black;
+}
+
+#btnLogin{
+    color: whitesmoke;
+}
+
+#btnLogin:hover{
+    color: black;
+}
+
+#btnLogin:active{
+    color: black;
+}
+
+
+#btnRegistro{
+    color: whitesmoke;
+}
+
+#btnRegistro:hover{
+    color: black;
+}
+
+
+#btnRegistro:active{
+    color: black;
+}
+.imagen{
+    width: 300px;
+}
+
+.checkbox, input[type="checkbox"] {
+    accent-color: #39bda7;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.user-image {
+    max-width: 200px;
+}
+
+.navbar{
+    width: 100%;
+}
